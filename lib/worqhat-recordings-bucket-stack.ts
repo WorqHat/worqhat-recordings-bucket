@@ -14,21 +14,21 @@ export class DailyRecordingBucket extends Stack {
 
         const bucketName = this.node.tryGetContext("s3bucketName");
 
-        const recordingsBucket = new aws_s3.Bucket(this, "DailyS3Bucket", {
+        const recordingsBucket = new aws_s3.Bucket(this, "worqhatS3Bucket", {
             bucketName: bucketName,
             encryption: aws_s3.BucketEncryption.S3_MANAGED,
         });
 
-        const dailySubdomain = this.node.tryGetContext("dailySubdomain");
+        const Subdomain = this.node.tryGetContext("Subdomain");
 
-        const dailyRole = new aws_iam.Role(this, "dailyRole", {
-            description: "Role allowing Daily to record to bucket",
+        const worqhatRole = new aws_iam.Role(this, "worqhatRole", {
+            description: "Role allowing WorqHat to record to bucket",
             maxSessionDuration: Duration.hours(12),
             assumedBy: new aws_iam.AccountPrincipal("291871421005"),
-            externalIds: [dailySubdomain],
+            externalIds: [Subdomain],
         });
 
-        dailyRole.addToPolicy(
+        worqhatRole.addToPolicy(
             new aws_iam.PolicyStatement({
                 effect: aws_iam.Effect.ALLOW,
                 actions: [
@@ -53,19 +53,19 @@ export class DailyRecordingBucket extends Stack {
         new CfnOutput(this, "bucketName", {
             value: recordingsBucket.bucketName,
             description: "Name of S3 bucket",
-            exportName: `${dailySubdomain}-bucketName`,
+            exportName: `${Subdomain}-bucketName`,
         });
 
         new CfnOutput(this, "bucketRegion", {
             value: this.region,
             description: "Region where S3 bucket is located",
-            exportName: `${dailySubdomain}-bucketRegion`,
+            exportName: `${Subdomain}-bucketRegion`,
         });
 
         new CfnOutput(this, "roleArn", {
-            value: dailyRole.roleArn,
+            value: worqhatRole.roleArn,
             description: "ARN of IAM role for Daily to assume",
-            exportName: `${dailySubdomain}-roleArn`,
+            exportName: `${Subdomain}-roleArn`,
         });
     }
 }
