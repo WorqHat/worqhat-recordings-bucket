@@ -2,7 +2,7 @@
   "name": "worqhat-recordings-bucket",
   "version": "0.1.0",
   "bin": {
-    "daily-recordings-bucket": "bin/worqhat-recordings-bucket.js"
+    "worqhat-recordings-bucket": "bin/worqhat-recordings-bucket.js"
   },
   "scripts": {
     "build": "tsc",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
-import { DailyRecordingBucket } from "../lib/worqhat-recordings-bucket-stack";
+import { WorqhatRecordingBucket } from "../lib/worqhat-recordings-bucket-stack";
 
 const app = new cdk.App();
 
@@ -38,7 +38,7 @@ if (
   );
 }
 
-new DailyRecordingBucket(
+new WorqhatRecordingBucket(
   app,
   `worqhatRecordingBucket-${subdomain}-${s3bucketName}-${s3bucketRegion}`,
   {

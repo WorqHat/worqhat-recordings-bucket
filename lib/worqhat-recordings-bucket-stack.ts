@@ -8,7 +8,7 @@ import {
 } from "aws-cdk-lib";
 import { Construct } from "constructs";
 
-export class DailyRecordingBucket extends Stack {
+export class WorqhatRecordingBucket extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
 
@@ -64,7 +64,7 @@ export class DailyRecordingBucket extends Stack {
 
         new CfnOutput(this, "roleArn", {
             value: worqhatRole.roleArn,
-            description: "ARN of IAM role for Daily to assume",
+            description: "ARN of IAM role for WorqHat to assume",
             exportName: `${Subdomain}-roleArn`,
         });
     }
