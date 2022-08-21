@@ -29,3 +29,8 @@ Bucket is created with basic configuration, you may want to configure differentl
 - cors settings
 
 It can be done by modifying the `aws_s3.Bucket` in the [libs](./lib/worqhat-recordings-bucket-stack.ts).
+
+## Contact us
+
+In case you face any issues while setting up your AWS S3 Bucket with WorqHat, please contact us 
+at [WorqHat Email](mailto:support@worqhat.com) or log in a Support Request at [WorqHat Support](https://support.worqhat.com/en/support/home).
