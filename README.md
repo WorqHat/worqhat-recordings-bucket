@@ -11,8 +11,8 @@ a custom script that will configure your S3 bucket for WorqHat Call recordings.
 
 ## Instructions
 
-- `npx cdk bootstrap --context Subdomain=worqhat --context s3bucketName=[bucket_name] --context  s3bucketRegion=[bucket_region]`
-- `npx cdk deploy --context Subdomain=worqhat --context s3bucketName=[bucket_name] --context s3bucketRegion=[bucket_region]`
+- `npx cdk bootstrap --context worqhatSubdomain=[worqhat_subdomain] --context s3bucketName=[bucket_name] --context  s3bucketRegion=[bucket_region]`
+- `npx cdk deploy --context worqhatSubdomain=[worqhat_subdomain] --context s3bucketName=[bucket_name] --context s3bucketRegion=[bucket_region]`
 
 The output of the `cdk deploy` command will include the names of the
 s3 bucket and the IAM role configured for WorqHat.
