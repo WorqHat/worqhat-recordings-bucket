@@ -28,4 +28,4 @@ Bucket is created with basic configuration, you may want to configure differentl
 - public/private settings
 - cors settings
 
-It can be done by modifying the `aws_s3.Bucket` in the [libs](./lib/daily-recordings-bucket-stack.ts).
+It can be done by modifying the `aws_s3.Bucket` in the [libs](./lib/worqhat-recordings-bucket-stack.ts).
