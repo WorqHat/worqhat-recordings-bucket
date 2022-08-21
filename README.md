@@ -6,7 +6,8 @@ a custom script that will configure your S3 bucket for WorqHat Call recordings.
 ## Setup
 
 - Run `npm install`.
-- [Setup your AWS credentials](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html) on your development machine.
+- [Setup your AWS credentials](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html) on your development machine or you 
+  can visit our [Support Docs](https://support.worqhat.com/en/support/solutions/articles/84000371663-storing-worqhat-video-call-recordings-in-a-custom-amazon-s3-bucket).
 
 ## Instructions
 
