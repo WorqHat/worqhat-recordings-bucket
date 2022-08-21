@@ -8,7 +8,7 @@ import {
 } from "aws-cdk-lib";
 import { Construct } from "constructs";
 
-export class DailyRecordingBucket extends Stack {
+export class worqhatRecordingBucket extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
 
@@ -19,13 +19,13 @@ export class DailyRecordingBucket extends Stack {
             encryption: aws_s3.BucketEncryption.S3_MANAGED,
         });
 
-        const Subdomain = this.node.tryGetContext("Subdomain");
+        const worqhatSubdomain = this.node.tryGetContext("worqhatSubdomain");
 
         const worqhatRole = new aws_iam.Role(this, "worqhatRole", {
-            description: "Role allowing WorqHat to record to bucket",
+            description: "Role allowing worqhat to record to bucket",
             maxSessionDuration: Duration.hours(12),
             assumedBy: new aws_iam.AccountPrincipal("291871421005"),
-            externalIds: [Subdomain],
+            externalIds: [worqhatSubdomain],
         });
 
         worqhatRole.addToPolicy(
@@ -53,19 +53,19 @@ export class DailyRecordingBucket extends Stack {
         new CfnOutput(this, "bucketName", {
             value: recordingsBucket.bucketName,
             description: "Name of S3 bucket",
-            exportName: `${Subdomain}-bucketName`,
+            exportName: `${worqhatSubdomain}-bucketName`,
         });
 
         new CfnOutput(this, "bucketRegion", {
             value: this.region,
             description: "Region where S3 bucket is located",
-            exportName: `${Subdomain}-bucketRegion`,
+            exportName: `${worqhatSubdomain}-bucketRegion`,
         });
 
         new CfnOutput(this, "roleArn", {
             value: worqhatRole.roleArn,
-            description: "ARN of IAM role for Daily to assume",
-            exportName: `${Subdomain}-roleArn`,
+            description: "ARN of IAM role for worqhat to assume",
+            exportName: `${worqhatSubdomain}-roleArn`,
         });
     }
 }
